@@ -26,9 +26,28 @@ func readThreeInts() -> (a: Int, b: Int, c: Int) {
     return (a: ints[0], b: ints[1], c: ints[2])
 }
 
-qa()
+qb()
 
 // 問題
+func qb() {
+    let n = readInt()
+    var array: [Int] = []
+    array = (0..<n).map{ _ in readInt() }
+    for index in 0..<array.count {
+        if index == array.count - 1 {
+            return
+        }
+        let diff = array[index+1] - array[index]
+        if diff < 0 {
+            print("down", abs(diff))
+        } else if diff > 0 {
+            print("up", abs(diff))
+        } else {
+            print("stay")
+        }
+    }
+}
+
 func qa() {
     let read = readLine()!
     let array = Array(read)
