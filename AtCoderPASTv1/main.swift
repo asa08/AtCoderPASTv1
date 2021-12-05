@@ -26,9 +26,20 @@ func readThreeInts() -> (a: Int, b: Int, c: Int) {
     return (a: ints[0], b: ints[1], c: ints[2])
 }
 
-qb()
+qc()
 
 // 問題
+func qd() {
+    
+}
+
+func qc() {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    var array = Array(ints)
+    array.sort { $1 < $0 }
+    print(array[2])
+}
+
 func qb() {
     let n = readInt()
     var array: [Int] = []
