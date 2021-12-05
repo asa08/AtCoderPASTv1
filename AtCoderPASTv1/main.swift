@@ -26,12 +26,75 @@ func readThreeInts() -> (a: Int, b: Int, c: Int) {
     return (a: ints[0], b: ints[1], c: ints[2])
 }
 
-qc()
+qd()
 
 // 問題
 func qd() {
+    let n = readInt()
+    let array = (0..<n).map{ _ in readInt() }
+    let set = Set(array)
+    if set.count == n {
+        print("Correct")
+        return
+    }
+    var dic: [Int: Int] = [:]
     
+    // O(n)
+    for nom in 0..<n {
+        let index = nom + 1
+        dic[index] = 0
+    }
+    
+    // O(n)
+    for nom in 0..<n {
+        let index = nom + 1
+        
+        if (index) == array[nom] {
+            dic[index]! += 1
+        } else {
+            dic[array[nom]]! += 1
+        }
+    }
+    
+    var y = 0
+    var x = 0
+    // O(n)
+    for set in dic {
+        if set.value == 2 {
+            y = set.key
+        }
+        if set.value == 0 {
+            x = set.key
+        }
+    }
+    print(y, x)
 }
+
+// botu
+// TLE
+// filter: O(n)
+// for: O(n)
+
+//func qd() {
+//    let n = readInt()
+//    var x = 0
+//    var y = 0
+//    let array = (0..<n).map{ _ in readInt() }
+//    for index in 1...n {
+//        let count = array.filter{ $0 == index }.count
+//        if count == 0 {
+//            x = index
+//        }
+//        if count == 2 {
+//            y = index
+//        }
+//    }
+//    if x == 0 && y == 0 {
+//        print("Correct")
+//        return
+//    }
+//    print(y, x)
+//}
 
 func qc() {
     let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
