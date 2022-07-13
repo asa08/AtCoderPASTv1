@@ -26,9 +26,41 @@ func readThreeInts() -> (a: Int, b: Int, c: Int) {
     return (a: ints[0], b: ints[1], c: ints[2])
 }
 
-qd()
+qe()
 
 // 問題
+func qe() {
+    // n 人数
+    // q 回数
+    let (n, q) = readTwoInts()
+    let array = (0..<q).map{ _ in readInts() }
+    var follow: [[Bool]] = []
+    
+    let followInit: [Bool] = (0..<n).map{ _ in false }
+    
+    for index in 0..<n {
+        follow.append(followInit)
+    }
+    
+    for action in array {
+        let type = action[0]
+        if type == 1 {
+            let from = action[1]
+            let to = action[2]
+            follow[from][to-1] = true
+        } else if type == 2 {
+            var me = action[1]
+            for row in 0..<follow.count {
+                if follow[row]
+            }
+        } else if type == 3 {
+            
+        }
+    }
+    
+    print(follow)
+}
+
 func qd() {
     let n = readInt()
     let array = (0..<n).map{ _ in readInt() }
